@@ -14,7 +14,7 @@ services:
       - PASSWORD=myodoo
   mydb:
     image: postgres:15.3
-    conatainer_name: db
+    container_name: db
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=myodoo
