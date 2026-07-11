@@ -1,6 +1,7 @@
 services:
   web:
     image: odoo
+    container_name: odoo
     depends_on:
       - mydb
     ports:
@@ -13,6 +14,7 @@ services:
       - PASSWORD=myodoo
   mydb:
     image: postgres:15.3
+    conatainer_name: db
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=myodoo

@@ -1,5 +1,5 @@
 {
-    'name': "xwesome Cicker",
+    'name': "estate",
 
     'summary': """
         Starting module for "Master the Odoo web framework, chapter 1: Build a Clicker game"
@@ -11,7 +11,7 @@
 
     'author': "Odoo",
     'website': "https://www.odoo.com/",
-    'category': 'Tutorials',
+    'category': 'Teste',
     'version': '0.1',
     'application': True,
     'installable': True,
