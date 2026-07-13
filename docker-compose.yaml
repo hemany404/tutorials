@@ -15,8 +15,12 @@ services:
   mydb:
     image: postgres:15.3
     container_name: db
+    volumes:
+      - postgres_data: /var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=myodoo
       - POSTGRES_USER=odoo
 
+  volume:
+    postgres_data:
