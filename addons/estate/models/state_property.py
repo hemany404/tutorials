@@ -7,17 +7,19 @@ class TestModel(models.Model):
     _order = "sequence"
 
     nome = fields.Char('Nome', required=True, translate=True)
-    descricao = fields.char('Descricao', required=False)
-    codigo_postal = fields.char('codigo_posta', required=False)
-    data_disponivel = fields.date('data_disponivel', required=False)
-    preco_esperado = fields.float('preco_esperado',required=True)
-    preco_venda = fields.float('Preco_venda', required=True)
-    quartos = fields.integer('quartos', required=True)
-    area_estar = fields.integer('area_estar', required=True)
-    fachadas = fields.integer('fachadas', required=True)
-    garagem = fields.float('garagem', required=True)
-    jardim = fields.float('jardim', required=False)
-    jardim_area = fields.integer('jardim_area', required=True)
-    jardim_orientacao = fields.char('jardim_orientacao',required=False)
+    descricao = fields.Char('Descricao', required=False)
+    codigo_postal = fields.Char('codigo_posta', required=False)
+    data_disponivel = fields.Date('data_disponivel', required=False)
+    preco_esperado = fields.Float('preco_esperado',required=True)
+    preco_venda = fields.Float('Preco_venda', required=True)
+    quartos = fields.Integer('quartos', required=True)
+    area_estar = fields.Integer('area_estar', required=True)
+    fachadas = fields.Integer('fachadas', required=True)
+    garagem = fields.Boolean('garagem', required=False)
+    jardim = fields.Boolean('jardim', required=False)
+    jardim_area = fields.Integer('jardim_area', required=True)
+    jardim_orientacao = fields.Selection(string='orientacao',
+                                         selection=[('norte', 'norte'), ('sul', 'sul')],
+                                         help='usado para escolher orientacao')
 
 
