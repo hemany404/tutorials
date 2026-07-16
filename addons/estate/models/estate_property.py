@@ -14,7 +14,7 @@ class TestModel(models.Model):
     codigo_postal = fields.Char(string='codigo_postal', required=False)
     data_disponivel = fields.Date(string='data_disponivel',copy=False, default=validade_padrao)
     preco_esperado = fields.Float(string='preco_esperado',required=True)
-    preco_venda = fields.Float(string='Preco_venda',readonly=True, copy=False,required=True)
+    preco_venda = fields.Float(string='Preco_venda',readonly=True, copy=False)
     quartos = fields.Integer(string="quartos", default=2,required=True)
     area_estar = fields.Integer(string='area_estar', required=True)
     fachadas = fields.Integer('fachadas')

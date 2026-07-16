@@ -12,6 +12,24 @@
     </field>
 </record>
 
+<search string="Buscar Propriedades">
+    <!-- Atalhos de pesquisa -->
+    <field name="name"/>
+    <field name="expected_price"/>
+    <field name="state"/>
+    
+    <!-- Filtros -->
+    <filter name="available" 
+            string="Disponíveis" 
+            domain="[('state', 'in', ['new', 'offer_received'])]"/>
+    
+    <!-- Agrupamento -->
+    <filter name="group_by_postal" 
+            string="Código Postal" 
+            context="{'group_by': 'postal_code'}"/>
+</search>
+
+
 <record id="test_model_view" model="ir.ui.view">
         <field name="name">test model list</field>
         <field name="model">test_model</field>
@@ -36,21 +54,29 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="nome"/>
-                            <field name="preco_esperado"/>
-                            <field name="quartos"/>
+                            <field name="codigo_postal"/>
+                            <field name="data_disponivel"/>
                         </group>
                         <group>
-                            <field name="area_estar"/>
-                            <field name="state"/>
+                            <field name="preco_esperado"/>
+                            <field name="preco_venda"/>
                         </group>
                     </group>
                     <notebook>
                         <page string="Descrição">
+                         <group>
+                            <field name="nome"/>
                             <field name="descricao"/>
-                        </page>
-                        <page string="Outros">
-                            <field name="data_disponivel"/>
+                            <field name='quartos'/>
+                            <field name='area_estar'/>
+                            <field name='fachadas'/>
+                         </group>
+                         <group>   
+                            <field name='garagem'/>
+                            <field name='jardim'/>
+                            <field name='jardim_area'/>
+                            <field name='jardim_orientacao'/>
+                         </group>   
                         </page>
                     </notebook>
                 </sheet>
