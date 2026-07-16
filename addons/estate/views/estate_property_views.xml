@@ -13,7 +13,7 @@
 </record>
 
 <record id="test_model_view" model="ir.ui.view">
-        <field name="name">test_model_list</field>
+        <field name="name">test model list</field>
         <field name="model">test_model</field>
         <field name="arch" type="xml">
             <list string="Propriedade">
@@ -28,4 +28,33 @@
         </field>
 </record>
 
+<record id='test_model_form' model='ir.ui.view'>
+        <field name="name">test model form</field>
+        <field name="model">test_model</field>
+        <field name="arch" type="xml">
+            <form string="Propriedade">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="nome"/>
+                            <field name="preco_esperado"/>
+                            <field name="quartos"/>
+                        </group>
+                        <group>
+                            <field name="area_estar"/>
+                            <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Descrição">
+                            <field name="descricao"/>
+                        </page>
+                        <page string="Outros">
+                            <field name="data_disponivel"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+</record>        
 </odoo>

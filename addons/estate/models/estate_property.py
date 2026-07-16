@@ -17,10 +17,10 @@ class TestModel(models.Model):
     preco_venda = fields.Float(string='Preco_venda',readonly=True, copy=False,required=True)
     quartos = fields.Integer(string="quartos", default=2,required=True)
     area_estar = fields.Integer(string='area_estar', required=True)
-    fachadas = fields.Integer('fachadas', required=True)
-    garagem = fields.Boolean('garagem', required=False)
-    jardim = fields.Boolean('jardim', required=False)
-    jardim_area = fields.Integer('jardim_area', required=True)
+    fachadas = fields.Integer('fachadas')
+    garagem = fields.Boolean('garagem')
+    jardim = fields.Boolean('jardim')
+    jardim_area = fields.Integer('jardim_area')
     jardim_orientacao = fields.Selection(string='orientacao',
                                          selection=[('norte', 'norte'), ('sul', 'sul')],
                                          help='usado para escolher orientacao')
