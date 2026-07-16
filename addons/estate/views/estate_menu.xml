@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 1. Menu Raiz (Aparece no seletor de apps) -->
+    <menuitem id="menu_estate_root" 
+              name="Imóveis" 
+              sequence="10"/>
+    
+    <!-- 2. Menu de Primeiro Nível (Barra superior) -->
+    <menuitem id="menu_estate_first_level" 
+              name="Propriedades" 
+              parent="menu_estate_root"
+              sequence="10"/>
+    
+    <!-- 3. Menu de Ação (Onde a mágica acontece) -->
+    <menuitem id="menu_estate_action" 
+              parent="menu_estate_first_level"
+              action="test_model_action"/>
+              
+</odoo>
