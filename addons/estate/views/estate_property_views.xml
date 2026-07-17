@@ -70,19 +70,21 @@
                     </group>
                     <notebook>
                         <page string="Descrição">
-                         <group>
-                            <field name="nome"/>
-                            <field name="descricao"/>
-                            <field name='quartos'/>
-                            <field name='area_estar'/>
-                            <field name='fachadas'/>
-                         </group>
-                         <group>   
-                            <field name='garagem'/>
-                            <field name='jardim'/>
-                            <field name='jardim_area'/>
-                            <field name='jardim_orientacao'/>
-                         </group>   
+                        <group>
+                            <group>
+                                <field name="nome"/>
+                                <field name="descricao"/>
+                                <field name='quartos'/>
+                                <field name='area_estar'/>
+                                <field name='fachadas'/>
+                            </group>
+                            <group>   
+                                <field name='garagem'/>
+                                <field name='jardim'/>
+                                <field name='jardim_area'/>
+                                <field name='jardim_orientacao'/>
+                            </group>   
+                         </group> 
                         </page>
                     </notebook>
                 </sheet>
