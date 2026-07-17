@@ -12,23 +12,29 @@
     </field>
 </record>
 
-<search string="Buscar Propriedades">
-    <!-- Atalhos de pesquisa -->
-    <field name="name"/>
-    <field name="expected_price"/>
-    <field name="state"/>
-    
-    <!-- Filtros -->
-    <filter name="available" 
-            string="Disponíveis" 
-            domain="[('state', 'in', ['new', 'offer_received'])]"/>
-    
-    <!-- Agrupamento -->
-    <filter name="group_by_postal" 
-            string="Código Postal" 
-            context="{'group_by': 'postal_code'}"/>
-</search>
 
+<record id="test_model_search" model="ir.ui.view">
+        <field name="name">test model search</field>
+        <field name="model">test_model</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Propriedades">
+                <!-- Atalhos de pesquisa -->
+                <field name="nome"/>
+                <field name="preco_esperado"/>
+                <field name="state"/>
+                
+                <!-- Filtros -->
+                <filter name="available" 
+                        string="Disponíveis" 
+                        domain="[('state', 'in', ['new', 'offer_received'])]"/>
+                
+                <!-- Agrupamento -->
+                <filter name="group_by_postal" 
+                        string="Código Postal" 
+                        context="{'group_by': 'codigo_postal'}"/>
+            </search>
+        </field>
+</record>
 
 <record id="test_model_view" model="ir.ui.view">
         <field name="name">test model list</field>
@@ -54,11 +60,11 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="codigo_postal"/>
+                            <field name="codigo_postal" readonly="True"/>
                             <field name="data_disponivel"/>
                         </group>
                         <group>
-                            <field name="preco_esperado"/>
+                            <field name="preco_esperado" options="{'color_field': 'FIELD_NAME', 'no_quick_create': True}"/>
                             <field name="preco_venda"/>
                         </group>
                     </group>
