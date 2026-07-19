@@ -24,5 +24,10 @@
     <menuitem id="menu_estate_type_list" 
               parent="menu_estate_property_type"
               action="test_model_type_action"
-              sequence="10"/>          
+              sequence="10"/>      
+
+    <menuitem id="menu_estate_tag_list" 
+              parent="menu_estate_property_type"
+              action="test_model_tag_action"
+              sequence="10"/>      
 </odoo>

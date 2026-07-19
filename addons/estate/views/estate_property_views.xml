@@ -59,6 +59,7 @@
             <form string="Propriedade">
                 <sheet>
                     <group>
+                        <field name="tag_ids" widget="many2many_tags"/>
                         <group>
                             <field name='tipo_propiedade'/>
                             <field name="codigo_postal" />

@@ -40,4 +40,5 @@ class TestModel(models.Model):
     active = fields.Boolean(string="Ativo", default=True)
     comprador_id = fields.Many2one('res.partner', string='comprador', copy=False)
     vendedor_id = fields.Many2one('res.users', string='vendedor',defualt=lambda self: self.env.user)
+    tag_ids = fields.Many2many("test_model_tag", string="Tags")
 
