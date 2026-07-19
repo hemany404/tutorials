@@ -10,6 +10,7 @@ class TestModel(models.Model):
         return date.today() + timedelta(days=90)
     
     nome = fields.Char(string='Nome', required=True, translate=True)
+    tipo_propiedade = fields.Many2one('test_model_type',string='Tipo de propriedade')
     descricao = fields.Char(string='Descricao', required=False)
     codigo_postal = fields.Char(string='codigo_postal', required=False)
     data_disponivel = fields.Date(string='data_disponivel',copy=False, default=validade_padrao)
