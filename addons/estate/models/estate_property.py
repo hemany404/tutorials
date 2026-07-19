@@ -8,7 +8,7 @@ class TestModel(models.Model):
 
     def validade_padrao(self):
         return date.today() + timedelta(days=90)
-    
+
     nome = fields.Char(string='Nome', required=True, translate=True)
     tipo_propiedade = fields.Many2one('test_model_type',string='Tipo de propriedade')
     descricao = fields.Char(string='Descricao', required=False)
@@ -38,4 +38,6 @@ class TestModel(models.Model):
     copy=False,
     default='new')
     active = fields.Boolean(string="Ativo", default=True)
+    comprador_id = fields.Many2one('res.partner', string='comprador', copy=False)
+    vendedor_id = fields.Many2one('res.users', string='vendedor',defualt=lambda self: self.env.user)
 

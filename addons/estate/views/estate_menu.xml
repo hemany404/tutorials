@@ -15,5 +15,14 @@
     <menuitem id="menu_estate_action" 
               parent="menu_estate_first_level"
               action="test_model_action"/>
-              
+
+    <menuitem id="menu_estate_property_type" 
+              name="Configurações" 
+              parent="menu_estate_root"
+              sequence="20"/>
+
+    <menuitem id="menu_estate_type_list" 
+              parent="menu_estate_property_type"
+              action="test_model_type_action"
+              sequence="10"/>          
 </odoo>
