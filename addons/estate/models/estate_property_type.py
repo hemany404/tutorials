@@ -5,5 +5,6 @@ class TestModelType(models.Model):
 
     _name  = 'test_model_type'
     _description = 'Tipo de Propriedades'
+    _rec_name = 'nome' 
 
     nome = fields.Char(string='Nome', required=True)
