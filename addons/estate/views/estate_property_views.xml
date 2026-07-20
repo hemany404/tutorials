@@ -88,6 +88,15 @@
                             </group>   
                          </group> 
                         </page>
+                        <page string="Ofertas">
+                            <field name="offer_ids">
+                                <list string="Ofertas">
+                                    <field name="price"/>
+                                    <field name="partner_id"/>
+                                    <field name="status"/>
+                                </list>
+                            </field>
+                        </page>
                         <page string="Outras info">
                         <group>
                             <group>

@@ -41,4 +41,5 @@ class TestModel(models.Model):
     comprador_id = fields.Many2one('res.partner', string='comprador', copy=False)
     vendedor_id = fields.Many2one('res.users', string='vendedor',defualt=lambda self: self.env.user)
     tag_ids = fields.Many2many("test_model_tag", string="Tags")
+    offer_ids = fields.One2many("test_model_offer", "property_id", string="Ofertas")
 
