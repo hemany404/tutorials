@@ -57,6 +57,20 @@
         <field name="model">test_model</field>
         <field name="arch" type="xml">
             <form string="Propriedade">
+              <header>
+                    <button name="action_cancel" 
+                    string="Cancelar" 
+                    type="object" 
+                    class="btn-danger" 
+                    invisible="state not in ('new','offer_received','offer_accepted')"/>
+
+                    <button name="action_sold" 
+                    string="Vender" 
+                    type="object" 
+                    class="btn-success" 
+                    invisible="state not in ('new','offer_received','offer_accepted')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,offer_received,offer_accepted,sold,canceled"/>
+              </header>         
                 <sheet>
                     <group>
                         <field name="tag_ids" widget="many2many_tags"/>
@@ -68,6 +82,7 @@
                         <group>
                             <field name="preco_esperado"/>
                             <field name="preco_venda"/>
+                            <field name="best_price"/>
                         </group>
                     </group>
                     <notebook>
@@ -85,6 +100,7 @@
                                 <field name='jardim'/>
                                 <field name='jardim_area'/>
                                 <field name='jardim_orientacao'/>
+                                <field name='total_area'/>
                             </group>   
                          </group> 
                         </page>
@@ -94,6 +110,10 @@
                                     <field name="price"/>
                                     <field name="partner_id"/>
                                     <field name="status"/>
+                                    <button name="action_accept" string="Aceitar" type="object" icon="fa-check" class="btn-success" />
+                                    <button name="action_refuse" string="Recusar" type="object" icon="fa-times" class="btn-danger" />
+                                    <field name="validaty"/>
+                                    <field name="data_limite"/>
                                 </list>
                             </field>
                         </page>
