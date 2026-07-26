@@ -9,3 +9,4 @@ class TestModelType(models.Model):
 
     nome = fields.Char(string='Nome', required=True)
     property_ids = fields.One2many('test_model', 'tipo_propiedade', string='Propriedades')
+    
