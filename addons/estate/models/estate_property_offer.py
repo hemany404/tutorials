@@ -60,6 +60,11 @@ class EstatePropertyOffer(models.Model):
 
     def action_refuse(self):
             self.ensure_one()
+
+            property_obj = self.property_id
+            accepted_offers = property_obj.offer_ids.filtered(lambda o: o.status == 'accepted')
+            if accepted_offers:
+                raise UserError(_("Esta oferta já foi aceite."))
             self.status = 'refused'
             return True
 

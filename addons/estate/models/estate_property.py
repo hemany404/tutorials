@@ -112,16 +112,16 @@ class TestModel(models.Model):
          'O preço de venda não pode ser negativo.'),
     ]   
 
-    @api.constrains('selling_price', 'expected_price')
+    @api.constrains('preco_venda', 'preco_esperado')
     def _check_selling_price_constraint(self):
         for record in self:
             # 1. Se o preço de venda for zero (ou próximo de zero), significa que a propriedade ainda não foi vendida.
             #    Nesse caso, a validação não se aplica (pula a verificação).
-            if float_is_zero(record.preco_esperado, precision_digits=2):
+            if float_is_zero(record.preco_venda, precision_digits=2):
                 continue
 
             # 2. Calcula o preço mínimo permitido (90% do esperado)
-            min_allowed_price = record.expected_price * 0.9
+            min_allowed_price = record.preco_esperado * 0.9
 
             # 3. Compara o preço de venda com o mínimo permitido.
             #    float_compare(a, b, precision) retorna:
@@ -132,4 +132,4 @@ class TestModel(models.Model):
                 raise ValidationError(_(
                     "O preço de venda (%.2f) não pode ser inferior a 90%% do preço esperado (%.2f). "
                     "Preço mínimo permitido: %.2f"
-                ) % (record.selling_price, record.expected_price, min_allowed_price))
+                ) % (record.preco_venda, record.preco_esperado, min_allowed_price))

@@ -110,7 +110,7 @@
                                     <field name="price"/>
                                     <field name="partner_id"/>
                                     <field name="status"/>
-                                    <button name="action_accept" string="Aceitar" type="object" icon="fa-check" class="btn-success" />
+                                    <button name="action_accept" string="Aceitar" type="object" icon="fa-check" class="btn-success" invisible="status  in ('accepted')" />
                                     <button name="action_refuse" string="Recusar" type="object" icon="fa-times" class="btn-danger" />
                                     <field name="validaty"/>
                                     <field name="data_limite"/>
