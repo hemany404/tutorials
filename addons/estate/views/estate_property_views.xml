@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
 <record id="test_model_action" model="ir.actions.act_window">
     <field name="name">lista de propriedades</field>
     <field name="res_model">test_model</field>
