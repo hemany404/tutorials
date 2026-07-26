@@ -20,7 +20,32 @@
                 <field name="nome"/>  
             </list>
         </field>
-</record>
+    </record>
+
+    <record id='Propriedades_form' model='ir.ui.view'>
+        <field name="name">Popriedades </field>
+        <field name="model">test_model_type</field>
+        <field name="arch" type="xml">
+            <form string="Propriedades">
+                <sheet>
+                    <group>
+                      <field name='nome'/>
+                    </group>
+                    <notebook>
+                        <page string="Propriedades">
+                            <field name='property_ids'>
+                                <list name='lista de Propriedades'>
+                                    <field name='nome'/>
+                                    <field name='preco_esperado'/>
+                                    <field name='state'/>
+                                </list> 
+                            </field>       
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>        
 
 
 

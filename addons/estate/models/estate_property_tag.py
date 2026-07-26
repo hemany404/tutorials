@@ -8,8 +8,7 @@ class TestModelTag(models.Model):
     _rec_name = 'nome' 
 
     nome = fields.Char(string='Nome', required=True)
-    property_ids = fields.one2many('test_model')
-
+    
     _sql_constraints = [
         ('unique_tag_name', 
          'UNIQUE(nome)', 
