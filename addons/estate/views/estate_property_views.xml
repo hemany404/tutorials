@@ -39,9 +39,9 @@
         <field name="name">test model list</field>
         <field name="model">test_model</field>
         <field name="arch" type="xml">
-            <list decoration-bold="state == 'offer_accepted'"
-                decoration-muted="state == 'sold'"
-                default_order="nome asc" string="Propriedade" editable="top">
+            <list decoration-success="state in ('sold')"
+                decoration-muted="state in ('offer_accepted')"
+                default_order="nome asc" string="Propriedade" >
                 <field name="sequence" widget="handle"/>
                 <field name="nome"/>  
                 <field name="codigo_postal"/> 
@@ -50,6 +50,7 @@
                 <field name="preco_esperado"/>  
                 <field name="preco_venda"/>  
                 <field name="data_disponivel" optional="hide"/>
+                <field name="state" optional="hide"/>
             </list>
         </field>
 </record>
@@ -100,8 +101,8 @@
                             <group>   
                                 <field name='garagem'/>
                                 <field name='jardim'/>
-                                <field name='jardim_area'/>
-                                <field name='jardim_orientacao'/>
+                                <field name='jardim_area' invisible="not jardim"/>
+                                <field name='jardim_orientacao' invisible="not jardim"/>
                                 <field name='total_area'/>
                             </group>   
                          </group> 

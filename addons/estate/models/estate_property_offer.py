@@ -12,6 +12,7 @@ class EstatePropertyOffer(models.Model):
         selection=[
             ('accepted', 'Aceito'),
             ('refused', 'Recusado'),
+            ('new_offer', 'Nova Oferta'),
         ],
         string="Status",
         copy=False
