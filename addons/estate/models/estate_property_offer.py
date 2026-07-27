@@ -15,7 +15,8 @@ class EstatePropertyOffer(models.Model):
             ('new_offer', 'Nova Oferta'),
         ],
         string="Status",
-        copy=False
+        copy=False,
+        default='new_offer'
     )
     validaty = fields.Integer(string='Validade', default=7)
     data_limite = fields.Date(compute='_compute_data_limite',inverse='_inverse_data_limite', string='Data Limite')
@@ -71,7 +72,7 @@ class EstatePropertyOffer(models.Model):
             return True
 
     _sql_constraints = [
-        # 3. Preço da oferta deve ser estritamente positivo
+
         ('check_offer_price_positive', 
          'CHECK(price > 0)', 
          'O preço da oferta deve ser estritamente positivo (maior que zero).'),

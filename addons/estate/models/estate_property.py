@@ -48,7 +48,7 @@ class TestModel(models.Model):
     string="Status",
     required=True,
     copy=False,
-    default='new')
+    default='new')        
     active = fields.Boolean(string="Ativo", default=True)
     comprador_id = fields.Many2one('res.partner', string='comprador', copy=False)
     vendedor_id = fields.Many2one('res.users', string='vendedor',defualt=lambda self: self.env.user)
