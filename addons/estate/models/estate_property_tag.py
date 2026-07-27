@@ -6,6 +6,7 @@ class TestModelTag(models.Model):
     _name = 'test_model_tag'
     _description= 'Tags'
     _rec_name = 'nome' 
+    _order = "nome"
 
     nome = fields.Char(string='Nome', required=True)
     color = fields.Integer(string='Cor')

@@ -9,7 +9,7 @@ class TestModel(models.Model):
     _name = 'test_model'
     _description = 'Test Model'
     _rec_name = 'nome' 
-    _order = 'sequence, nome'
+    _order = 'id desc'
 
     def validade_padrao(self):
         return date.today() + timedelta(days=90)

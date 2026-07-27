@@ -39,7 +39,9 @@
         <field name="name">test model list</field>
         <field name="model">test_model</field>
         <field name="arch" type="xml">
-            <list default_order="nome asc" string="Propriedade">
+            <list decoration-bold="state == 'offer_accepted'"
+                decoration-muted="state == 'sold'"
+                default_order="nome asc" string="Propriedade" editable="top">
                 <field name="sequence" widget="handle"/>
                 <field name="nome"/>  
                 <field name="codigo_postal"/> 
@@ -47,7 +49,7 @@
                 <field name="area_estar"/>    
                 <field name="preco_esperado"/>  
                 <field name="preco_venda"/>  
-                <field name="data_disponivel"/>
+                <field name="data_disponivel" optional="hide"/>
             </list>
         </field>
 </record>
