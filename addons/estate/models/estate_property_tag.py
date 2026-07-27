@@ -8,6 +8,7 @@ class TestModelTag(models.Model):
     _rec_name = 'nome' 
 
     nome = fields.Char(string='Nome', required=True)
+    color = fields.Integer(string='Cor')
     
     _sql_constraints = [
         ('unique_tag_name', 

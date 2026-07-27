@@ -49,7 +49,7 @@ class EstatePropertyOffer(models.Model):
             # Atualiza a propriedade com o preço e o comprador da oferta
             property_obj.preco_venda = self.price
             property_obj.comprador_id = self.partner_id
-            property_obj.state = 'sold'
+            property_obj.state = 'offer_accepted'
 
             
             # (Opcional) Recusa automaticamente as outras ofertas pendentes

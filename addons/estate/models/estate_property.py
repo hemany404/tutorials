@@ -9,6 +9,7 @@ class TestModel(models.Model):
     _name = 'test_model'
     _description = 'Test Model'
     _rec_name = 'nome' 
+    _order = 'sequence, nome'
 
     def validade_padrao(self):
         return date.today() + timedelta(days=90)
@@ -25,7 +26,7 @@ class TestModel(models.Model):
     fachadas = fields.Integer('fachadas')
     garagem = fields.Boolean('garagem')
     jardim = fields.Boolean('jardim')
-
+    sequence = fields.Integer(default=10)
     @api.onchange('jardim')
     def _onchange_jardim(self):
         if self.jardim:
