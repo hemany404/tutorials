@@ -6,6 +6,7 @@ class EstatePropertyOffer(models.Model):
     _name = "test_model_offer"
     _description = "Oferta de Propriedade"
     _order = "price desc"
+    _rec_name = "price"
 
     price = fields.Float(string="Preço")
     status = fields.Selection(
@@ -20,6 +21,10 @@ class EstatePropertyOffer(models.Model):
     )
     validaty = fields.Integer(string='Validade', default=7)
     data_limite = fields.Date(compute='_compute_data_limite',inverse='_inverse_data_limite', string='Data Limite')
+    property_type_id = fields.Many2one('test_model_type', 
+                                    related='property_id.tipo_propiedade', 
+                                    store=True,  
+                                    string="Tipo de Propriedade")
 
     @api.depends('validaty')
     def _compute_data_limite(self):

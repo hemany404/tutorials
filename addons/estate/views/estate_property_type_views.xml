@@ -27,6 +27,15 @@
         <field name="model">test_model_type</field>
         <field name="arch" type="xml">
             <form string="Propriedades">
+                <header>
+                    <button name="%(test_model_offer_action)d"
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-money"
+                        string="Ofertas">
+                        <field name="offer_count" widget="statinfo"/>
+                    </button>
+                </header>    
                 <sheet>
                     <group>
                       <field name='nome'/>
