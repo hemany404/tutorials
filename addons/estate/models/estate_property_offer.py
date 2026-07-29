@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 from datetime import date
 from odoo.exceptions import UserError
 
@@ -13,11 +13,9 @@ class EstatePropertyOffer(models.Model):
         selection=[
             ('accepted', 'Aceito'),
             ('refused', 'Recusado'),
-            ('new_offer', 'Nova Oferta'),
         ],
         string="Status",
         copy=False,
-        default='new_offer'
     )
     validaty = fields.Integer(string='Validade', default=7)
     data_limite = fields.Date(compute='_compute_data_limite',inverse='_inverse_data_limite', string='Data Limite')
@@ -82,3 +80,27 @@ class EstatePropertyOffer(models.Model):
          'CHECK(price > 0)', 
          'O preço da oferta deve ser estritamente positivo (maior que zero).'),
     ]
+
+
+    @api.model
+    def create(self, vals):
+
+         values = vals[0]
+         property_id = values.get('property_id')
+         
+         if property_id :
+              property_obj = self.env['test_model'].browse(property_id)
+
+
+              offer_price = values.get('price')
+              if property_obj.offer_ids:
+                   max_price = max(property_obj.offer_ids.mapped('price'))
+                   if offer_price < max_price:
+                        raise UserError(_(
+                        "O preço da oferta (%.2f) não pode ser menor que a maior oferta existente (%.2f) "
+                        "para esta propriedade." % (offer_price, max_price)
+                    ))
+
+              property_obj.state = 'offer_received'   
+
+         return super().create(vals)       

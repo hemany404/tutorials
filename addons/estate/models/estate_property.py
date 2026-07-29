@@ -51,7 +51,7 @@ class TestModel(models.Model):
     default='new')        
     active = fields.Boolean(string="Ativo", default=True)
     comprador_id = fields.Many2one('res.partner', string='comprador', copy=False)
-    vendedor_id = fields.Many2one('res.users', string='vendedor',defualt=lambda self: self.env.user)
+    vendedor_id = fields.Many2one('res.users', string='vendedor',default=lambda self: self.env.user)
     tag_ids = fields.Many2many("test_model_tag", string="Tags")
     offer_ids = fields.One2many("test_model_offer", "property_id", string="Ofertas")
     best_price = fields.Float(compute='_compute_best_price', string='Melhor preco')
@@ -135,12 +135,14 @@ class TestModel(models.Model):
                     "Preço mínimo permitido: %.2f"
                 ) % (record.preco_venda, record.preco_esperado, min_allowed_price))
 
-            def unlink(self):
-                for record in self:
-                    if record.state not in ['new','canceled']:
-                        raise UserError(_(
+    def unlink(self):
+        for record in self:
+            if record.state not in ['new','canceled']:
+                raise UserError(_(
                     "Não é possível excluir uma propriedade com status '%s'. "
                     "Apenas propriedades 'Novo' ou 'Cancelado' podem ser excluídas."
-                ) % record.state)
+                    ) % record.state)
 
-                    
+        return super().unlink()    
+
+
