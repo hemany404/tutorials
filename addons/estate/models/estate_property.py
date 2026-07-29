@@ -134,3 +134,13 @@ class TestModel(models.Model):
                     "O preço de venda (%.2f) não pode ser inferior a 90%% do preço esperado (%.2f). "
                     "Preço mínimo permitido: %.2f"
                 ) % (record.preco_venda, record.preco_esperado, min_allowed_price))
+
+            def unlink(self):
+                for record in self:
+                    if record.state not in ['new','canceled']:
+                        raise UserError(_(
+                    "Não é possível excluir uma propriedade com status '%s'. "
+                    "Apenas propriedades 'Novo' ou 'Cancelado' podem ser excluídas."
+                ) % record.state)
+
+                    
